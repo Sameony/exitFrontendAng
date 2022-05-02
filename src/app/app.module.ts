@@ -19,7 +19,8 @@ import { LoginComponent } from './Templates/login/login.component';
 import { ProductsComponent } from './Templates/products/products.component';
 import { MainRoutingModule } from './main/main-routing.module';
 import {HttpClientModule} from "@angular/common/http";
-import { LandingPageComponent } from './Templates/landing-page/landing-page.component'
+import { LandingPageComponent } from './Templates/landing-page/landing-page.component';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { LandingPageComponent } from './Templates/landing-page/landing-page.comp
     RegisterComponent,
     LoginComponent,
     ProductsComponent,
-    LandingPageComponent
+    LandingPageComponent,
   ],
   imports: [
     BrowserModule,

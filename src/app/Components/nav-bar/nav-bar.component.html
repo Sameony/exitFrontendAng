@@ -1,14 +1,19 @@
 <mat-toolbar color="primary">
-    <mat-toolbar-row>
+    <mat-toolbar-row class="d-flex justify-content-between">
       <a routerLink="" class="link">MyApp</a>
-      <span class="example-spacer"></span>
+
+ 
+        <div class="searchBarHolder">
+          <input matInput class="searchBar" placeholder="Ex. Pizza" value="">
+          <mat-icon>search</mat-icon>
+        </div>
+ 
       
-      
+     <div>
       <div *ngIf="this.authService.isLoggedIn(); else elseBlock">
         <button mat-raised-button (click)="this.authService.logout()">Logout</button>
       </div> 
       <ng-template #elseBlock><button mat-raised-button routerLink="/login">Login</button></ng-template>
-      
       
       
       <button mat-icon-button class="example-icon px-2" aria-label="Example icon-button with menu icon">
@@ -17,4 +22,5 @@
       <button mat-icon-button class="example-icon px-2" aria-label="Example icon-button with menu icon">
         <mat-icon>shopping_cart</mat-icon>
       </button>
+     </div>
     </mat-toolbar-row>

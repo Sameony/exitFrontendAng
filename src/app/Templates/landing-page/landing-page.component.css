@@ -1,0 +1,65 @@
+.landingWrapper {
+    height: calc(100vh - 4.8rem);
+    color: white;
+  }
+  .heroImage {
+    background-image: linear-gradient(
+        rgba(139, 139, 139, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ),url(../../../assets/brooke-lark-W1B2LpQOBxA-unsplash.jpg);
+    height: calc(100vh - 18rem);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  .heroContent {
+    text-align: center;
+    position: absolute;
+    top: 20%;
+    padding-left: 2rem;
+  }
+  .landingWrapper .btn-primary {
+    background-color: white;
+    border-color: white;
+  }
+  .landingWrapper .btn-primary:hover {
+    background-color: var(#aeadad);
+    border-color: var(#aeadad);
+  }
+  
+  .frontCards {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 1rem;
+    place-content: space-around;
+  }
+  
+  .miniHero {
+    transition: all 0.3s;
+    height: 12rem;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .m1 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../../../assets/brooke-lark-W1B2LpQOBxA-unsplash.jpg)
+  }
+  .m2 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../../../assets/brooke-lark-W1B2LpQOBxA-unsplash.jpg)
+  }
+  .miniHero p {
+    font-size: 0.6rem;
+  }
+  .miniHero .btn {
+    font-size: 0.7rem;
+    padding: 0.4rem 0.5rem;
+  }
+  .miniHero:hover {
+    box-shadow: 0px 0px 8px 4px var(#aeadad),
+      0px 0px 2px 2px var(#aeadad);
+  }
