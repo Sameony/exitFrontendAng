@@ -12,3 +12,25 @@
       color: var(--bs-indigo);
       cursor: pointer;
   }
+  .bgimage{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url("../../../assets/undraw_shopping_app_flsj.svg");
+  }
+  .textBox{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+  }
+  .bgimage .shopButton{
+    position: absolute;
+    right: 5%;
+    top:10%;
+    text-align: right;
+    font-size: larger;
+  }
+  .shopButton div{
+    font-size: x-large;
+  }

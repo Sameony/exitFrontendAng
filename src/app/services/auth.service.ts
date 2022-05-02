@@ -32,7 +32,7 @@ public userData : UserDTO | null = null;
   }
   public isLoggedIn()
   {
-    return this.authToken!==null;
+    return this.userData!==null;
   }
   public logout()
   {

@@ -1,12 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-6 offset-md-3 text-center ">
-            <div class="container text-center">
-                <!-- <img logo> -->
-            </div>
-            
-            
-            
+        <div class="col-md-6 offset-md-3 text-center" *ngIf="this.authService.isLoggedIn()===false; else elseBlock">
             <mat-card class="mt-3">
               <h1 class="mb-3">Welcome back!</h1>
               <form (ngSubmit)="formSubmit()">
@@ -40,5 +34,15 @@
             </mat-card>
               
         </div>
+        <ng-template #elseBlock class="imageCover">
+          <div class="bgimage">
+              <div class="shopButton">
+                <div>You are already logged in! Shop now!</div>
+              <button class="mt-3" mat-raised-button color="primary" routerLink="/product"> Shop Now!</button>  
+              </div>
+          </div>
+          
+        </ng-template>
+      
     </div>
 </div>

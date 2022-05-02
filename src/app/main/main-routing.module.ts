@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from '../Templates/register/register.component';
 import { LoginComponent } from '../Templates/login/login.component';
 import { LandingPageComponent } from '../Templates/landing-page/landing-page.component';
+import { ProductsComponent } from '../Templates/products/products.component';
 const routes: Routes = [
   {  path:"signup",
       component: RegisterComponent,
@@ -10,6 +11,10 @@ const routes: Routes = [
   },
   {  path:"login",
       component: LoginComponent,
+      pathMatch: 'full'
+  },
+  {   path:"product",
+      component: ProductsComponent,
       pathMatch: 'full'
   },
   {  path:"",

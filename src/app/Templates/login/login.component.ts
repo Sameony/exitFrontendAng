@@ -42,8 +42,18 @@ export class LoginComponent implements OnInit {
       const userDTO = new UserDTO()
       userDTO.username = this.user.username;
       userDTO.password = this.user.password;
-      this.authService.login(userDTO);
+      this.userService.matchUser(userDTO).subscribe(
+        (result=>{
+          this.authService.login(userDTO);
+          console.log("success") 
+        }),
+        (error=>
+        {
+          console.log(error+"fail")
+        })
+      )
     }
-
+    
+    window.location.reload();
   }
 }
