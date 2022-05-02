@@ -21,6 +21,7 @@ import { MainRoutingModule } from './main/main-routing.module';
 import {HttpClientModule} from "@angular/common/http";
 import { LandingPageComponent } from './Templates/landing-page/landing-page.component';
 import { FilterComponent } from './Components/filter/filter.component';
+import { ProductCardComponent } from './Components/product-card/product-card.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { FilterComponent } from './Components/filter/filter.component';
     ProductsComponent,
     LandingPageComponent,
     FilterComponent,
+    ProductCardComponent,
   ],
   imports: [
     BrowserModule,

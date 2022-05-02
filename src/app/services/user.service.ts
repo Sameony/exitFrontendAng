@@ -19,6 +19,6 @@ export class UserService {
   }
   public getProducts()
   {
-    return this.http.get(`${portUrl}/products`);
+    return this.http.post(`${portUrl}/getProducts`,"");
   }
 }
