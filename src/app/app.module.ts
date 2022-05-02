@@ -20,6 +20,7 @@ import { ProductsComponent } from './Templates/products/products.component';
 import { MainRoutingModule } from './main/main-routing.module';
 import {HttpClientModule} from "@angular/common/http";
 import { LandingPageComponent } from './Templates/landing-page/landing-page.component';
+import { FilterComponent } from './Components/filter/filter.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { LandingPageComponent } from './Templates/landing-page/landing-page.comp
     LoginComponent,
     ProductsComponent,
     LandingPageComponent,
+    FilterComponent,
   ],
   imports: [
     BrowserModule,

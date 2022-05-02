@@ -1,0 +1,15 @@
+.filterWrapper{
+    background-color: #673ab7;
+    overflow-y: auto;
+    padding: 1rem;
+    color: white;
+}
+.filterWrapper h2{
+    font-weight: 500;
+    
+}
+.ourSlider{
+    width: 80%;
+    accent-color: white;
+    display: block;
+}

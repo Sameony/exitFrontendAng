@@ -17,4 +17,8 @@ export class UserService {
   {
     return this.http.post(`${portUrl}/users/match`,user);    
   }
+  public getProducts()
+  {
+    return this.http.get(`${portUrl}/products`);
+  }
 }

@@ -1,0 +1,12 @@
+<div class="filterWrapper">
+  <form action="">
+    <div class="d-flex justify-content-between">
+      <h2>Filters</h2>
+      <button mat-flat-button color="warn" type="reset">Reset</button>
+    </div>
+    <label for="priceVal" class="my-3 fs-5">Enter Max Price</label>
+    <input type="range" min="0" max="10000" value="700" step="200" name="priceVal" class="ourSlider" [(ngModel)]="formData.priceVal">
+    <div class="my-2 ms-2">{{formData.priceVal}}</div>
+    
+  </form>
+</div>
