@@ -7,3 +7,8 @@
   .example-full-width {
     width: 100%;
   }
+  .link{
+    text-decoration: none;
+    color: var(--bs-indigo);
+    cursor: pointer;
+}

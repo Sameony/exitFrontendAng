@@ -5,33 +5,39 @@
                 <!-- <img logo> -->
             </div>
             
-            <h1>Register Here!</h1>
-            <form (ngSubmit)="formSubmit()">
+            
+            
+            <mat-card class="mt-3">
+              <h1 class="mb-3">Welcome back!</h1>
+              <form (ngSubmit)="formSubmit()">
 
-                 <!-- username -->
-                 <mat-form-field class="example-full-width" appearance="outline">
-                    <mat-label>Username</mat-label>
-                    <input type="text" name="username" matInput [formControl]="textFormControl" [errorStateMatcher]="matcher"
-                           placeholder="Ex. sg143" required [(ngModel)]="user.username">
-                    <mat-error *ngIf="textFormControl.hasError('required')">
-                      Username is <strong>required</strong>
-                    </mat-error>
-                  </mat-form-field>
+                <!-- username -->
+                <mat-form-field class="example-full-width" appearance="outline">
+                   <mat-label>Username</mat-label>
+                   <input type="text" name="username" matInput [formControl]="textFormControl" [errorStateMatcher]="matcher"
+                          placeholder="Ex. sg143" required [(ngModel)]="user.username">
+                   <mat-error *ngIf="textFormControl.hasError('required')">
+                     Username is <strong>required</strong>
+                   </mat-error>
+                 </mat-form-field>
 
-                  
-                  <!-- password -->
-                 <mat-form-field class="example-full-width" appearance="outline">
-                    <mat-label>Password</mat-label>
-                    <input type="password" name="password" matInput [formControl]="passFormControl" [errorStateMatcher]="matcher"
-                           placeholder="Must be at least 6 characters long" required [(ngModel)]="user.password">
-                    <mat-error *ngIf="textFormControl.hasError('required')">
-                      password is <strong>required</strong>
-                    </mat-error>
-                  </mat-form-field>
+                 
+                 <!-- password -->
+                <mat-form-field class="example-full-width" appearance="outline">
+                   <mat-label>Password</mat-label>
+                   <input type="password" name="password" matInput [formControl]="passFormControl" [errorStateMatcher]="matcher"
+                          placeholder="Must be at least 6 characters long" required [(ngModel)]="user.password">
+                   <mat-error *ngIf="textFormControl.hasError('required')">
+                     password is <strong>required</strong>
+                   </mat-error>
+                 </mat-form-field>
 
-                  <button mat-raised-button color="primary" type="submit">Register</button>
-                  <button mat-raised-button color="warn" type="reset" class="ms-5">Reset</button>
-              </form>
+                 <button mat-raised-button color="primary" type="submit">Register</button>
+                 <button mat-raised-button color="warn" type="reset" class="ms-5">Reset</button>
+             <div class="container my-4">New here? <a class="link" href="/signup">Click here to register!</a></div>
+           </form>
+           
+            </mat-card>
               
         </div>
     </div>

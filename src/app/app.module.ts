@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
+import {MatIconModule} from '@angular/material/icon'
+import {MatCard, MatCardModule} from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import {MatButtonModule} from '@angular/material/button';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatInputModule} from '@angular/material/input';
+import {MatToolbarModule} from '@angular/material/toolbar';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AppComponent } from './app.component';
@@ -37,7 +40,10 @@ import { LandingPageComponent } from './Templates/landing-page/landing-page.comp
     MatInputModule,
     FormsModule,
     HttpClientModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
