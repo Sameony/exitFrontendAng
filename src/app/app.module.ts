@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
-import {MatIconModule} from '@angular/material/icon'
-import {MatCard, MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
+
+import {MatCardModule} from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import {MatButtonModule} from '@angular/material/button';

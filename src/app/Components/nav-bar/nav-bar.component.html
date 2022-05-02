@@ -2,7 +2,10 @@
     <mat-toolbar-row>
       <a routerLink="" class="link">MyApp</a>
       <span class="example-spacer"></span>
+      <div *ngIf="this.authService.isLoggedIn()===false"></div>
       <button mat-raised-button routerLink="/login">Login</button>
+      <button (click)="this.authService.logout()" *ngIf="this.authService.isLoggedIn()">Logout</button>
+      
       <button mat-icon-button class="example-icon px-2" aria-label="Example icon-button with menu icon">
         <mat-icon>favorite</mat-icon>
       </button>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
+import { UserDTO } from 'src/app/model/userDTO.model';
+import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
 
 
@@ -23,7 +25,7 @@ export class LoginComponent implements OnInit {
   passFormControl =  new FormControl('', [Validators.required, Validators.minLength(6)]);
   matcher = new MyErrorStateMatcher();
 
-  constructor(private userService:UserService) { }
+  constructor(private userService:UserService, public authService: AuthService) { }
 
   public user = {
     username  : "",
@@ -35,11 +37,13 @@ export class LoginComponent implements OnInit {
 
   formSubmit()
   {
-    if(!this.user.password || !this.user.username)
-      alert("Do not leave the fields empty pls")
-    this.userService.adduser(this.user).subscribe(
-      (data)=>console.log(data)
-      ,(error)=>console.log(error)
-    )
+    if(this.user.username && this.user.password)
+    {
+      const userDTO = new UserDTO()
+      userDTO.username = this.user.username;
+      userDTO.password = this.user.password;
+      this.authService.login(userDTO);
+    }
+
   }
 }
