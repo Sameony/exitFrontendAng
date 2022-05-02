@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
+import { UserService } from 'src/app/services/user.service';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -22,7 +23,7 @@ export class RegisterComponent implements OnInit {
   passFormControl =  new FormControl('', [Validators.required, Validators.minLength(6)]);
   matcher = new MyErrorStateMatcher();
 
-  constructor() { }
+  constructor(private userService:UserService) { }
 
   public user = {
     username  : "",
@@ -36,6 +37,11 @@ export class RegisterComponent implements OnInit {
 
   formSubmit()
   {
-    alert(this.user.gender)
+    if(!this.user.email || !this.user.gender || !this.user.password || !this.user.username)
+      alert("Do not leave the fields empty pls")
+    this.userService.adduser(this.user).subscribe(
+      (data)=>console.log(data)
+      ,(error)=>console.log(error)
+    )
   }
 }

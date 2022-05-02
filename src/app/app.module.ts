@@ -14,6 +14,8 @@ import { RegisterComponent } from './Templates/register/register.component';
 import { LoginComponent } from './Templates/login/login.component';
 import { ProductsComponent } from './Templates/products/products.component';
 import { MainRoutingModule } from './main/main-routing.module';
+import {HttpClientModule} from "@angular/common/http";
+import { LandingPageComponent } from './Templates/landing-page/landing-page.component'
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { MainRoutingModule } from './main/main-routing.module';
     FooterComponent,
     RegisterComponent,
     LoginComponent,
-    ProductsComponent
+    ProductsComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +36,7 @@ import { MainRoutingModule } from './main/main-routing.module';
     ReactiveFormsModule,
     MatInputModule,
     FormsModule,
+    HttpClientModule,
     MatButtonToggleModule
   ],
   providers: [],
