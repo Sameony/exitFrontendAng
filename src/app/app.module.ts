@@ -23,6 +23,7 @@ import { FilterComponent } from './Components/filter/filter.component';
 import { MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
 import { ProductCardComponent } from './Components/product-card/product-card.component';
+import { ProductComponent } from './Templates/product/product.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { ProductCardComponent } from './Components/product-card/product-card.com
     LandingPageComponent,
     FilterComponent,
     ProductCardComponent,
+    ProductComponent,
   ],
   imports: [
     BrowserModule,

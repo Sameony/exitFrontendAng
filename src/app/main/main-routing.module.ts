@@ -4,6 +4,7 @@ import { RegisterComponent } from '../Templates/register/register.component';
 import { LoginComponent } from '../Templates/login/login.component';
 import { LandingPageComponent } from '../Templates/landing-page/landing-page.component';
 import { ProductsComponent } from '../Templates/products/products.component';
+import { ProductComponent } from '../Templates/product/product.component';
 const routes: Routes = [
   {  path:"signup",
       component: RegisterComponent,
@@ -19,6 +20,10 @@ const routes: Routes = [
   },
   {  path:"",
       component: LandingPageComponent,
+      pathMatch: 'full'
+  },
+  {  path:"test",
+      component: ProductComponent,
       pathMatch: 'full'
   }
 ];

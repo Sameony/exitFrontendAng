@@ -1,0 +1,62 @@
+<div class="gridDisplay">
+    <div class="filterWrapper">
+        <form action="">
+          <div class="d-flex justify-content-between">
+            <h2>Filters</h2>
+            <button mat-flat-button color="warn" type="reset">Reset</button>
+          </div>
+          <label for="priceVal" class="my-3 fs-5">Enter Max Price</label>
+          <input type="range" min="0" max="10000" value="700" step="200" name="priceVal" class="ourSlider"
+            [(ngModel)]="formData.priceVal">
+          <div class="my-2 ms-2">{{formData.priceVal}}</div>
+          <label for="categories" class="my-3 fs-5">Select Categories</label>
+          <div>
+            <mat-checkbox class="checkboxes" *ngFor="let item of brands;let i = index" 
+              [value]="item"
+              (change)="clickHandler($event)"
+              >
+              {{item}}
+              {{formData.brands}}
+            </mat-checkbox>
+          </div>
+      
+      
+        </form>
+      </div>
+      <div class="overflow">
+        <div class="pageContent">
+            <div *ngFor="let item of results" class="productCard pd-sm mg-sm">
+            
+            <div class='productImage flex align-items-center'>
+                <img src={{item.imgUrl}} alt={{item.title}} />
+            </div>
+            <div class="wishListIcon flex align-items-center">
+                <i class="far fa-heart fs-lg"></i>  
+            </div>
+            <div class="cardContent">
+                <div class="priceContainer mg-y-sm pd-sm">
+                    <h3 class="cardHead">{{item.title}}</h3>
+                    <div class="productPrice fw-xxl"><i class="fas fa-rupee-sign"></i> {{item.price}}
+                    </div>
+                </div>
+            </div>
+            
+            <div class='cardActionButtons'>
+                    <button class="btn btn-success fs-md mg-t-sm" >
+                            <i class="fas fa-shopping-cart mg-r-sm">  
+                            </i>Add to Cart
+                    </button>
+                    <button mat-raised-button color="primary" class="fs-md mg-y-sm textCenter">
+                            <i  class="fas fa-shopping-cart mg-r-sm"> </i>View Details
+                    </button>
+                
+            </div>
+                
+                
+        
+        </div>
+        </div>
+        
+      </div>
+      
+</div>
