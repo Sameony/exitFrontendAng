@@ -12,13 +12,13 @@ export class ProductComponent implements OnInit {
   public brands = []
   results:any=[]
   public formData = {
-    priceVal:"700",
+    priceVal:"2700",
     brands: [""],
     selected: [""]
   }
+
   ngOnInit(): void {
-    this.userService.getProducts().subscribe(
-      res => this.setResult(res));  
+    this.updateResult();
     }
     clickHandler=(e:any)=>{
     
@@ -27,19 +27,42 @@ export class ProductComponent implements OnInit {
       else
         this.formData.selected.push(e.source.value);
       console.log(this.formData.selected)
+      this.updateResult();
     }
     setResult(r:any){
       this.results=r;
       this.brands=this.results.map((x:any)=>{
         return x.brand;
       })
-      for(let i=0;i<this.results.length;i++){
-        console.log(this.results[i].imgUrl);
-      }
+      
       this.brands=[...new Set(this.brands)]
     }
-    updateResult(form:any)
+    updateResult()
     {
+      this.userService.getProducts().subscribe(
+        res => {
+          this.setResult(res)
+          let updatedResult:any = []
+          
+          console.log("hi from here")
+          if(this.formData.selected.length>1)
+          {
+            for(let i=0;i<this.results.length;i++){
+              if(this.results[i].price < this.formData.priceVal && this.formData.selected.includes(this.results[i].brand))
+              {
+                console.log(this.results[i])
+                updatedResult=[...updatedResult, this.results[i]]
+                
+              }
+            }
+            console.log(updatedResult)
+          this.results=updatedResult;
+          }
+          
+          
+        }
+        );
+      
       
     }
 
