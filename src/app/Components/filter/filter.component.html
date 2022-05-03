@@ -12,8 +12,10 @@
     <div>
       <mat-checkbox class="checkboxes" *ngFor="let item of check;let i = index" 
         [value]="item"
-        (change)="clickHandler()">
+        (change)="clickHandler($event)"
+        >
         {{item}}
+        {{formData.brands}}
       </mat-checkbox>
     </div>
 

@@ -1,16 +1,16 @@
-
-<div class="productCard pd-sm mg-sm">
+<div class="pageContent">
+    <div *ngFor="let item of results" class="productCard pd-sm mg-sm">
+    
     <div class='productImage flex align-items-center'>
-        <img src="../../../assets/brooke-lark-W1B2LpQOBxA-unsplash.jpg" alt="CardTitle" />
+        <img src={{item.imgUrl}} alt={{item.title}} />
     </div>
     <div class="wishListIcon flex align-items-center">
         <i class="far fa-heart fs-lg"></i>  
     </div>
     <div class="cardContent">
         <div class="priceContainer mg-y-sm pd-sm">
-            <h3 class="cardHead">CardTitle</h3>
-            <span>3456 Reviews</span>
-            <div class="productPrice fw-xxl"><i class="fas fa-rupee-sign"></i> 4399
+            <h3 class="cardHead">{{item.title}}</h3>
+            <div class="productPrice fw-xxl"><i class="fas fa-rupee-sign"></i> {{item.price}}
             </div>
         </div>
     </div>
@@ -28,4 +28,5 @@
         
         
 
+</div>
 </div>

@@ -1,52 +1,13 @@
 @import url("https://mirinda-mewi.netlify.app/styles/main.css");
 
-
-/* aside filtering component */
-
-.filters {
-  background-color: black;
-  padding: 0 2rem;
-  color: white;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  overflow: auto;
+.pageContent {
+  width: 100%;
+  display: grid;
+  place-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  grid-template-rows: repeat(auto-fill, 29rem);
+  gap: 2rem;
 }
-.filters .snippets {
-  background-color: var(--lighter-gray);
-}
-.filterHead {
-  margin-top: 5rem;
-  display: flex;
-  justify-content: space-between;
-}
-.filters .btn {
-  font-size: initial;
-  cursor: pointer;
-  color: white;
-  text-decoration-color: white;
-}
-.filters .btn-link-dot {
-  text-decoration-style: solid;
-}
-.filters input {
-  accent-color: white;
-}
-.filters input[type="radio"],
-.filters input[type="checkbox"] {
-  -ms-transform: scale(1.5);
-  -webkit-transform: scale(1.5);
-  transform: scale(1.5);
-}
-.filters input[type="radio"] {
-  accent-color: black;
-}
-#myRange {
-  cursor: pointer;
-  width: 15rem;
-}
-/* Main product display page grid layout */
-
 /* card component */
 
 .productCard {

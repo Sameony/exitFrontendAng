@@ -3,11 +3,8 @@
     grid-template-columns: 18rem 1fr;
     gap: 0.5rem;
 }
-.pageContent {
-    width: 100%;
-    display: grid;
-    place-content: center;
-    grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
-    grid-template-rows: repeat(auto-fill, 29rem);
-    gap: 2rem;
-  }
+.overflow{
+    height: calc(100vh - 4.7rem);
+    overflow-x: auto;
+}
+  
