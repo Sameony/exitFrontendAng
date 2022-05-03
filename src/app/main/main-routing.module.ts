@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from '../Templates/register/register.component';
 import { LoginComponent } from '../Templates/login/login.component';
 import { LandingPageComponent } from '../Templates/landing-page/landing-page.component';
-import { ProductsComponent } from '../Templates/products/products.component';
+
 import { ProductComponent } from '../Templates/product/product.component';
 const routes: Routes = [
   {  path:"signup",
@@ -15,17 +15,13 @@ const routes: Routes = [
       pathMatch: 'full'
   },
   {   path:"product",
-      component: ProductsComponent,
+      component: ProductComponent,
       pathMatch: 'full'
   },
   {  path:"",
       component: LandingPageComponent,
       pathMatch: 'full'
   },
-  {  path:"test",
-      component: ProductComponent,
-      pathMatch: 'full'
-  }
 ];
 
 @NgModule({

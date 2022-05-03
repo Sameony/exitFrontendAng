@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 
+
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -14,8 +15,16 @@ export class ProductComponent implements OnInit {
   public formData = {
     priceVal:"2700",
     brands: [""],
-    selected: [""]
+    selected: ["Nykaa", "Ajio", "Biba", "Anouk"],
+    search:""
   }
+
+  modalDesc:string=""
+  modalTitle:string=''
+  modalImgUrl:string=''
+  modalPrice:any
+  modalRating:any
+  modalBrand:string=''
 
   ngOnInit(): void {
     this.updateResult();
@@ -43,24 +52,17 @@ export class ProductComponent implements OnInit {
         res => {
           this.setResult(res)
           let updatedResult:any = []
-          
-          console.log("hi from here")
-          if(this.formData.selected.length>1)
-          {
-            for(let i=0;i<this.results.length;i++){
-              if(this.results[i].price < this.formData.priceVal && this.formData.selected.includes(this.results[i].brand))
-              {
-                console.log(this.results[i])
-                updatedResult=[...updatedResult, this.results[i]]
-                
-              }
+          for(let i=0;i<this.results.length;i++){
+            if(this.results[i].price < this.formData.priceVal && this.results[i].title.toUpperCase().includes(this.formData.search.toUpperCase()) && this.formData.selected.includes(this.results[i].brand))
+            {
+              console.log(this.results[i].title)
+              updatedResult=[...updatedResult, this.results[i]]
             }
-            console.log(updatedResult)
+          }
+          console.log(updatedResult)
           this.results=updatedResult;
           }
-          
-          
-        }
+        
         );
       
       

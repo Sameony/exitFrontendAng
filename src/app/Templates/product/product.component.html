@@ -9,11 +9,19 @@
           <input type="range" min="0" max="10000" value="700" step="200" name="priceVal" class="ourSlider"
             [(ngModel)]="formData.priceVal" (change)="updateResult()">
           <div class="my-2 ms-2">{{formData.priceVal}}</div>
-          <label for="categories" class="my-3 fs-5">Select Categories</label>
+
+          <label for="nameSearch" class="mt-4 my-3 fs-5">Search by Name</label>
+          <div class="searchBarHolder d-flex align-items-center">
+            <input matInput placeholder="Ex. Party Dress" value="" name="search" [(ngModel)]="formData.search" (change)="updateResult()">
+            <mat-icon>search</mat-icon>
+          </div>
+          
+          <label for="categories" class="mt-4 my-3 fs-5">Select Categories</label>
           <div>
             <mat-checkbox class="checkboxes" *ngFor="let item of brands;let i = index" 
               [value]="item"
               (change)="clickHandler($event)"
+              [checked]="true"
               >
               {{item}}
               {{formData.brands}}
@@ -54,6 +62,34 @@
                 
                 
         
+ <!-- Add user Modal -->
+ <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Details </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          
+              <div class="mb-3">
+                  <label for="name" class="form-label">{{item.title}}</label>
+                </div>
+              <div class="mb-3">
+                <label for="exampleInputCalory" class="form-label">Calories</label>
+              </div>
+              <div class="mb-3" >
+                <label for="exampleInputDate" class="form-label">Date</label>
+              </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="close"class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <!-- <button type="button" *ngIf="showAddButton"  class="btn btn-primary">Add</button>
+        <button type="button" *ngIf="showUpdateButton" class="btn btn-primary">Update</button> -->
+      </div>
+    </div>
+  </div>
+
         </div>
         </div>
         
