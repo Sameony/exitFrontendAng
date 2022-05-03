@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import {MatIconModule} from '@angular/material/icon';
-
 import {MatCardModule} from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -21,6 +20,7 @@ import { MainRoutingModule } from './main/main-routing.module';
 import {HttpClientModule} from "@angular/common/http";
 import { LandingPageComponent } from './Templates/landing-page/landing-page.component';
 import { FilterComponent } from './Components/filter/filter.component';
+import { MatCheckboxModule} from '@angular/material/checkbox';
 import { ProductCardComponent } from './Components/product-card/product-card.component';
 
 
@@ -49,7 +49,8 @@ import { ProductCardComponent } from './Components/product-card/product-card.com
     MatButtonToggleModule,
     MatToolbarModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

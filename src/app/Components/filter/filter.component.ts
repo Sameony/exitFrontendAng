@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MatCheckboxChange} from '@angular/material/checkbox';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -28,6 +29,7 @@ export class FilterComponent implements OnInit {
 	// 	"rating":""
 	// }
   results:any=[]
+  clickHandler=()=>{}
   ngOnInit(): void {
     
     this.userService.getProducts().subscribe(
