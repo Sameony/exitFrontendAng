@@ -5,17 +5,18 @@
       <button mat-flat-button color="warn" type="reset">Reset</button>
     </div>
     <label for="priceVal" class="my-3 fs-5">Enter Max Price</label>
-    <input type="range" min="0" max="10000" value="700" step="200" name="priceVal" class="ourSlider" [(ngModel)]="formData.priceVal">
+    <input type="range" min="0" max="10000" value="700" step="200" name="priceVal" class="ourSlider"
+      [(ngModel)]="formData.priceVal">
     <div class="my-2 ms-2">{{formData.priceVal}}</div>
     <label for="categories" class="my-3 fs-5">Select Categories</label>
-    <mat-checkbox class="checkboxes" 
-    *ngFor="let item of check;let i = index" 
-    [value]="item"
-    (change)="clickHandler()"
-    >
-    {{item}}
-    </mat-checkbox>
+    <div>
+      <mat-checkbox class="checkboxes" *ngFor="let item of check;let i = index" 
+        [value]="item"
+        (change)="clickHandler()">
+        {{item}}
+      </mat-checkbox>
+    </div>
 
-    
+
   </form>
 </div>

@@ -18,36 +18,14 @@ export class FilterComponent implements OnInit {
     brands:[]
   }
   public check = []
-  // {
-	// 	"id":"",
-	// 	"price":"",
-	// 	"imgUrl":"",
-	// 	"pincodes":[],
-	// 	"description":"",
-	// 	"brand":"",
-	// 	"title":"",
-	// 	"rating":""
-	// }
   results:any=[]
   clickHandler=()=>{}
   ngOnInit(): void {
     
-    this.userService.getProducts().subscribe(
-      res=> this.setResult(res));
-
     
   }
   
-    setResult(r:any){
-      this.results=r;
-      this.check=this.results.map((x:any)=>{
-        return x.brand;
-      })
-      for(let i=0;i<this.results.length;i++){
-        console.log(this.results[i].id);
-      }
-      this.check=[...new Set(this.check)]
-    }
+   
     
   }
 

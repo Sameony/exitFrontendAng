@@ -3,6 +3,7 @@ import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/form
 import {ErrorStateMatcher} from '@angular/material/core';
 import { UserService } from 'src/app/services/user.service';
 
+
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -22,11 +23,12 @@ export class RegisterComponent implements OnInit {
   textFormControl =  new FormControl('', [Validators.required]);
   passFormControl =  new FormControl('', [Validators.required, Validators.minLength(6)]);
   matcher = new MyErrorStateMatcher();
-
+  genderList: string[] = ['Male', 'Female', 'Other'];
   constructor(private userService:UserService) { }
 
   public user = {
     username  : "",
+    name: "",
     password : "",
     email : "",
     gender : ""
@@ -43,5 +45,6 @@ export class RegisterComponent implements OnInit {
       (data)=>console.log(data)
       ,(error)=>console.log(error)
     )
+    
   }
 }

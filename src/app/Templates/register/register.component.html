@@ -1,61 +1,86 @@
 <div class="container">
-    <div class="row">
-        <div class="col-md-6 offset-md-3 text-center ">
-            <div class="container text-center">
-                <!-- <img logo> -->
+  <div class="row">
+    <div class="col-md-6 offset-md-3 text-center ">
+      <div class="container text-center">
+        <!-- <img logo> -->
+      </div>
+      <mat-card class="mt-3">
+        <h1 class="mb-3">Register Here!</h1>
+        <form (ngSubmit)="formSubmit()">
+          <!-- email -->
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input type="email" name="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+              placeholder="Ex. pat@example.com" [(ngModel)]="user.email">
+            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <!-- Name -->
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Name (Optional)</mat-label>
+            <input type="text" name="name" matInput placeholder="Ex. Kim Seulgi" [(ngModel)]="user.name">
+          </mat-form-field>
+
+          <!-- username -->
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Username</mat-label>
+            <input type="text" name="username" matInput [formControl]="textFormControl" [errorStateMatcher]="matcher"
+              placeholder="Ex. sg143" required [(ngModel)]="user.username">
+            <mat-error *ngIf="textFormControl.hasError('required')">
+              Username is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+
+          <!-- password -->
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input type="password" name="password" matInput [formControl]="passFormControl"
+              [errorStateMatcher]="matcher" placeholder="Must be at least 6 characters long" required
+              [(ngModel)]="user.password">
+            <mat-error *ngIf="textFormControl.hasError('required')">
+              password is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+          <!-- Gender -->
+          <div class="my-3">
+            <label id="example-radio-group-label">Please provide your Gender:</label>
+            <div>
+              <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+              [(ngModel)]="this.user.gender" name="Gender">
+                <mat-radio-button class="example-radio-button m-1" 
+                value="male"
+                name="male">
+                  Male
+                </mat-radio-button>
+                <mat-radio-button class="example-radio-button m-1" 
+                value="female"
+                name="female">
+                  Female
+                </mat-radio-button>
+                <mat-radio-button class="example-radio-button m-1" 
+                value="other"
+                name="other">
+                  Other
+                </mat-radio-button>
+            </mat-radio-group>
             </div>
-            <mat-card class="mt-3">
-              <h1 class="mb-3">Register Here!</h1>
-              <form (ngSubmit)="formSubmit()">
-                <!-- email -->
-                <mat-form-field class="example-full-width" appearance="outline">
-                  <mat-label>Email</mat-label>
-                  <input type="email" name="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
-                         placeholder="Ex. pat@example.com" [(ngModel)]="user.email">
-                  <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-                    Please enter a valid email address
-                  </mat-error>
-                  <mat-error *ngIf="emailFormControl.hasError('required')">
-                    Email is <strong>required</strong>
-                  </mat-error>
-                </mat-form-field>
+            
+          </div>
 
-                 <!-- username -->
-                 <mat-form-field class="example-full-width" appearance="outline">
-                    <mat-label>Username</mat-label>
-                    <input type="text" name="username" matInput [formControl]="textFormControl" [errorStateMatcher]="matcher"
-                           placeholder="Ex. sg143" required [(ngModel)]="user.username">
-                    <mat-error *ngIf="textFormControl.hasError('required')">
-                      Username is <strong>required</strong>
-                    </mat-error>
-                  </mat-form-field>
+          <button mat-raised-button color="primary" type="submit">Register</button>
+          <button mat-raised-button color="warn" type="reset" class="ms-5">Reset</button>
+          <div class="container my-4">Already an existing user? <a class="link" href="/login">Click here to Sign in!</a>
+          </div>
+        </form>
+      </mat-card>
 
-                  
-                  <!-- password -->
-                 <mat-form-field class="example-full-width" appearance="outline">
-                    <mat-label>Password</mat-label>
-                    <input type="password" name="password" matInput [formControl]="passFormControl" [errorStateMatcher]="matcher"
-                           placeholder="Must be at least 6 characters long" required [(ngModel)]="user.password">
-                    <mat-error *ngIf="textFormControl.hasError('required')">
-                      password is <strong>required</strong>
-                    </mat-error>
-                  </mat-form-field>
-
-                  <!-- Gender -->
-                  <div class="my-3">
-                    <mat-button-toggle-group name="gender" aria-label="Gender" [(ngModel)]="user.gender">
-                        <mat-button-toggle value="male">Male</mat-button-toggle>
-                        <mat-button-toggle value="female">Female</mat-button-toggle>
-                        <mat-button-toggle value="other">Other</mat-button-toggle>
-                      </mat-button-toggle-group>
-                 </div>
-
-                  <button mat-raised-button color="primary" type="submit">Register</button>
-                  <button mat-raised-button color="warn" type="reset" class="ms-5">Reset</button>
-                  <div class="container my-4">Already an existing user? <a class="link" href="/login">Click here to Sign in!</a></div>
-              </form>
-            </mat-card>
-              
-        </div>
     </div>
+  </div>
 </div>

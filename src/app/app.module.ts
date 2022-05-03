@@ -21,6 +21,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { LandingPageComponent } from './Templates/landing-page/landing-page.component';
 import { FilterComponent } from './Components/filter/filter.component';
 import { MatCheckboxModule} from '@angular/material/checkbox';
+import {MatRadioModule} from '@angular/material/radio';
 import { ProductCardComponent } from './Components/product-card/product-card.component';
 
 
@@ -50,7 +51,8 @@ import { ProductCardComponent } from './Components/product-card/product-card.com
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]
