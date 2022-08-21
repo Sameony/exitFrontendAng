@@ -1,98 +1,108 @@
 <div class="gridDisplay">
-    <div class="filterWrapper">
-        <form action="">
-          <div class="d-flex justify-content-between">
-            <h2>Filters</h2>
-            <button mat-flat-button color="warn" type="reset">Reset</button>
-          </div>
-          <label for="priceVal" class="my-3 fs-5">Enter Max Price</label>
-          <input type="range" min="0" max="10000" value="700" step="200" name="priceVal" class="ourSlider"
-            [(ngModel)]="formData.priceVal" (change)="updateResult()">
-          <div class="my-2 ms-2">{{formData.priceVal}}</div>
-
-          <label for="nameSearch" class="mt-4 my-3 fs-5">Search by Name</label>
-          <div class="searchBarHolder d-flex align-items-center">
-            <input matInput placeholder="Ex. Party Dress" value="" name="search" [(ngModel)]="formData.search" (change)="updateResult()">
-            <mat-icon>search</mat-icon>
-          </div>
-          
-          <label for="categories" class="mt-4 my-3 fs-5">Select Categories</label>
-          <div>
-            <mat-checkbox class="checkboxes" *ngFor="let item of brands;let i = index" 
-              [value]="item"
-              (change)="clickHandler($event)"
-              [checked]="true"
-              >
-              {{item}}
-              {{formData.brands}}
-            </mat-checkbox>
-          </div>
-      
-      
-        </form>
+  <div class="filterWrapper">
+    <form action="">
+      <div class="d-flex justify-content-between">
+        <h2>Filters</h2>
+        <button mat-flat-button color="warn" type="reset">Reset</button>
       </div>
-      <div class="overflow">
-        <div class="pageContent">
-            <div *ngFor="let item of results" class="productCard pd-sm mg-sm">
-            
-            <div class='productImage flex align-items-center'>
-                <img src={{item.imgUrl}} alt={{item.title}} />
+      <label for="priceVal" class="my-3 fs-5">Enter Max Price</label>
+      <input type="range" min="0" max="10000" value="700" step="200" name="priceVal" class="ourSlider"
+        [(ngModel)]="formData.priceVal" (change)="updateResult()">
+      <div class="my-2 ms-2">{{formData.priceVal}}</div>
+
+      <label for="nameSearch" class="mt-4 my-3 fs-5">Search by Name</label>
+      <div class="searchBarHolder d-flex align-items-center">
+        <input matInput placeholder="Ex. Party Dress" value="" name="search" [(ngModel)]="formData.search"
+          (change)="updateResult()">
+        <mat-icon>search</mat-icon>
+      </div>
+
+      <label for="categories" class="mt-4 my-3 fs-5">Select Categories</label>
+      <div>
+        <mat-checkbox class="checkboxes" *ngFor="let item of brands;let i = index" [value]="item"
+          (change)="clickHandler($event)" [checked]="true">
+          {{item}}
+          {{formData.brands}}
+        </mat-checkbox>
+      </div>
+
+
+    </form>
+  </div>
+  <div class="overflow">
+    <div class="pageContent">
+      <div *ngFor="let item of results" class="productCard pd-sm mg-sm">
+
+        <div class='productImage flex align-items-center'>
+          <img src={{item.imgUrl}} alt={{item.title}} />
+        </div>
+        <div class="wishListIcon flex align-items-center">
+          <i class="far fa-heart fs-lg"></i>
+        </div>
+        <div class="cardContent">
+          <div class="priceContainer mg-y-sm pd-sm">
+            <h3 class="cardHead">{{item.title}}</h3>
+            <div class="productPrice fw-xxl"><i class="fas fa-rupee-sign"></i> {{item.price}}
             </div>
-            <div class="wishListIcon flex align-items-center">
-                <i class="far fa-heart fs-lg"></i>  
-            </div>
-            <div class="cardContent">
-                <div class="priceContainer mg-y-sm pd-sm">
-                    <h3 class="cardHead">{{item.title}}</h3>
-                    <div class="productPrice fw-xxl"><i class="fas fa-rupee-sign"></i> {{item.price}}
-                    </div>
-                </div>
-            </div>
-            
-            <div class='cardActionButtons'>
-                    <button class="btn btn-success fs-md mg-t-sm" >
-                            <i class="fas fa-shopping-cart mg-r-sm">  
-                            </i>Add to Cart
-                    </button>
-                    <button mat-raised-button color="primary" class="fs-md mg-y-sm textCenter">
-                            <i  class="fas fa-shopping-cart mg-r-sm"> </i>View Details
-                    </button>
-                
-            </div>
-                
-                
-        
- <!-- Add user Modal -->
- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          </div>
+        </div>
+
+        <div class='cardActionButtons'>
+          <button class="btn btn-success fs-md mg-t-sm">
+            <i class="fas fa-shopping-cart mg-r-sm">
+            </i>Add to Cart
+          </button>
+          <button (click)="modalHandler(item)" data-bs-toggle="modal" data-bs-target="#exampleModal" mat-raised-button
+            color="primary" class="fs-md mg-y-sm textCenter">
+            <i class="fas fa-shopping-cart mg-r-sm"> </i>View Details
+          </button>
+
+        </div>
+
+
+
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Add user Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Details </h5>
+        <h5 class="modal-title" id="exampleModalLabel">Product Details </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-          
-              <div class="mb-3">
-                  <label for="name" class="form-label">{{item.title}}</label>
-                </div>
-              <div class="mb-3">
-                <label for="exampleInputCalory" class="form-label">Calories</label>
-              </div>
-              <div class="mb-3" >
-                <label for="exampleInputDate" class="form-label">Date</label>
-              </div>
+
+        <div class="mb-3">
+          <label class="form-label fs-3" style="color: #673ab7;">{{modalTitle}}</label>
+        </div>
+        <div class="mb-3">
+
+          <label class="fs-5 form-label">{{modalBrand}}</label>
+        </div>
+        <div class='modalImage flex align-items-center'>
+          <img src={{modalImgUrl}} alt={{modalTitle}} />
+        </div>
+        <div class="productPrice mt-2 fw-xxl"><span class="me-2" style="color: black;">Price:</span> <i
+            class="fas fa-rupee-sign"></i>{{modalPrice}}
+
+        </div>
+        <div class="mb-3">
+          <label class="form-label">{{modalRating}}<i class="fas fa-star prim-color"></i></label>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">{{modalDesc}}</label>
+        </div>
       </div>
       <div class="modal-footer">
-        <button type="button" id="close"class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <!-- <button type="button" *ngIf="showAddButton"  class="btn btn-primary">Add</button>
-        <button type="button" *ngIf="showUpdateButton" class="btn btn-primary">Update</button> -->
+        <button type="button" class="me-3" mat-raised-button color="accent" data-bs-dismiss="modal">
+          <i class="fas fa-bolt me-2"></i>Purchase</button>
+        <button type="button" id="close" mat-raised-button color="warn" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
-
-        </div>
-        </div>
-        
-      </div>
-      
-</div>

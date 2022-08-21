@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import { UserService } from 'src/app/services/user.service';
-
+import Swal from 'sweetalert2';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -41,10 +41,20 @@ export class RegisterComponent implements OnInit {
   {
     if(!this.user.email || !this.user.gender || !this.user.password || !this.user.username)
       alert("Do not leave the fields empty pls")
-    this.userService.adduser(this.user).subscribe(
-      (data)=>console.log(data)
-      ,(error)=>console.log(error)
-    )
-    
+    else
+    {
+      this.userService.adduser(this.user).subscribe(
+        (data)=>console.log(data)
+        ,(error)=>console.log(error)
+      )
+      Swal.fire(
+        'Good job!',
+        'You are Successfully Registered',
+        'success'
+      )
+    }
+   
   }
+
+
 }

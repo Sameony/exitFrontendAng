@@ -67,5 +67,15 @@ export class ProductComponent implements OnInit {
       
       
     }
+    modalHandler(item:any)
+    {
+     
+      this.modalBrand = item.brand;
+      this.modalDesc = item.description;
+      this.modalImgUrl = item.imgUrl;
+      this.modalPrice = item.price;
+      this.modalTitle = item.title;
+      this.modalRating = item.rating;
+    }
 
 }

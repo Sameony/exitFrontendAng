@@ -4,8 +4,8 @@
  
       
      <div>
-      <div *ngIf="this.authService.isLoggedIn(); else elseBlock">
-        <button mat-raised-button (click)="this.authService.logout()">Logout</button>
+      <div class="d-inline-block" *ngIf="this.authService.isLoggedIn(); else elseBlock">
+        <button mat-raised-button  (click)="this.authService.logout()">Logout</button>
       </div> 
       <ng-template #elseBlock><button mat-raised-button routerLink="/login">Login</button></ng-template>
       

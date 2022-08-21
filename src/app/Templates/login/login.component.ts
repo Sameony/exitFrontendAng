@@ -1,10 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
-import {ErrorStateMatcher} from '@angular/material/core';
-import { UserDTO } from 'src/app/model/userDTO.model';
-import { AuthService } from 'src/app/services/auth.service';
-import { UserService } from 'src/app/services/user.service';
-
+import {
+  Component,
+  OnInit
+} from '@angular/core';
+import {
+  FormControl,
+  FormGroupDirective,
+  NgForm,
+  Validators
+} from '@angular/forms';
+import {
+  ErrorStateMatcher
+} from '@angular/material/core';
+import {
+  UserDTO
+} from 'src/app/model/userDTO.model';
+import {
+  AuthService
+} from 'src/app/services/auth.service';
+import {
+  UserService
+} from 'src/app/services/user.service';
+import Swal from 'sweetalert2';
 
 
 /** Error when invalid control is dirty, touched, or submitted. */
@@ -21,39 +37,52 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class LoginComponent implements OnInit {
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
-  textFormControl =  new FormControl('', [Validators.required]);
-  passFormControl =  new FormControl('', [Validators.required, Validators.minLength(6)]);
+  textFormControl = new FormControl('', [Validators.required]);
+  passFormControl = new FormControl('', [Validators.required, Validators.minLength(6)]);
   matcher = new MyErrorStateMatcher();
 
-  constructor(private userService:UserService, public authService: AuthService) { }
+  constructor(private userService: UserService, public authService: AuthService) {}
 
   public user = {
-    username  : "",
-    password : ""
+    username: "",
+    password: ""
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  formSubmit()
-  {
-    if(this.user.username && this.user.password)
-    {
+  formSubmit() {
+    if (this.user.username && this.user.password) {
       const userDTO = new UserDTO()
       userDTO.username = this.user.username;
       userDTO.password = this.user.password;
       this.userService.matchUser(userDTO).subscribe(
-        (result=>{
+        (result => {
           this.authService.login(userDTO);
-          console.log("success") 
+          Swal.fire(
+            'Welcome back!',
+            'You have logged in!',
+            'success'
+          )
+          console.log("success")
         }),
-        (error=>
-        {
-          console.log(error+"fail")
+        (error => {
+
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!',
+            footer: 'Check your credentials again.'
+          })
+          console.log(error + "fail")
         })
       )
+      if(this.authService.isLoggedIn())
+      {
+        window.location.reload();
+      }
+      
     }
+
     
-    window.location.reload();
   }
 }
